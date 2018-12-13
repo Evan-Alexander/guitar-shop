@@ -65,10 +65,21 @@ app.post('/api/users/login',(req, res) => {
       })
     })
   })
- 
-
 })
 
+app.get('/api/user/logout', auth, (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { token: '' },
+    (err, doc) => {
+      if(err) return res.json({ success: false, err });
+      // If we're able to destroy the token return a success msg.
+      return res.status(200).send({
+        success: true
+      })
+    }
+  )
+})
 
 const port = process.env.PORT || 3002;
 
