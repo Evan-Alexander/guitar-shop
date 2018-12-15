@@ -6,6 +6,14 @@ body {
     color: #404040;
 }
 
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
 .page_container {
     min-height: 75vh;
     padding-top: 85px;
@@ -189,10 +197,9 @@ select {
 ==============================*/
 .link_default {
     text-transform: uppercase;
-    padding: 10px;
+    padding: 0.5em;
     display: table;
-    background: #e1ddc3;
-    margin-top: 10px;
+    background: $button_default_color;
 }
 
 .card_link,
@@ -412,7 +419,7 @@ footer span .svg-inline--fa {
 }
 
 .home_promotion .my_link a {
-    margin: 10px auto;
+    margin: 1em auto;
 }
 
 
@@ -715,14 +722,9 @@ footer span .svg-inline--fa {
     border-top: 5px solid #999592;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 80px 0px 110px 0px;
-    padding: 30px;
+    margin: 4em 0px 5em 0px;
+    padding: 2em;
     min-height: 430px;
-}
-
-.register_login_container .left,
-.register_login_container .right {
-    flex:1
 }
 
 .register_login_container h2 {
@@ -732,7 +734,7 @@ footer span .svg-inline--fa {
 
 .register_login_container p {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1em;
     width: 90%;
 }
 
