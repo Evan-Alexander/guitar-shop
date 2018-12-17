@@ -5,6 +5,7 @@ import './styles.scss';
 import Layout from './hoc/layout';
 import Home from './components/Home';
 import RegisterLogin from './components/Register_login';
+import Register from './components/Register_login/Register';
 
 const Routes = () => {
   return (
