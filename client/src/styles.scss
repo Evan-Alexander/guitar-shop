@@ -122,11 +122,11 @@ input {
 button {
     cursor: pointer;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 0.75em;
     background: #e1ddc3;
-    margin-top: 10px;
+    margin-top: 0.75em;
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .error_label {
@@ -736,6 +736,10 @@ footer span .svg-inline--fa {
     font-weight: 300;
     font-size: 1em;
     width: 90%;
+}
+
+.register_form {
+    width: 100%;
 }
 
 /*=============================

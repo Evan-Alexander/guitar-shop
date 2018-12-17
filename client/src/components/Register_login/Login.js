@@ -70,8 +70,6 @@ class Login extends Component {
               formError: true
             })
           }
-
-
         })
     } else {
       this.setState({
@@ -81,7 +79,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log('login component?')
     return (
       <div className="signin_wrapper">
         <form onSubmit={(event) => this.submitForm(event)}>
@@ -101,9 +98,9 @@ class Login extends Component {
             </div>
             : null
           }
-          <button
-            onClick={(e) => this.submitForm(e)}
-          >Log in</button>
+          <button onClick={(e) => this.submitForm(e)}>
+            Log in
+          </button>
         </form>
         
       </div>

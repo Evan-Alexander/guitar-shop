@@ -25,9 +25,7 @@ const RegisterLogin = () => {
             <Login />
           </div>
         </div>
-      </div>
-
-      
+      </div>  
     </div>
   )
 }

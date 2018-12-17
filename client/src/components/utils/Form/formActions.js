@@ -8,6 +8,12 @@ export const validate = (element, formdata = []) => {
     error = !valid ? [valid, message] : error;
   }
 
+  if(element.validation.confirm) {
+    const valid = element.value.trim() === formdata[element.validation.confirm].value;
+    const message = `${!valid ? 'Passwords do not match' : ''}`;
+    error = !valid ? [valid, message] : error;
+  }
+
   if(element.validation.required) {
     // Case for invalid input that's not empty
     const valid = element.value.trim() !== '';
@@ -36,14 +42,16 @@ export const update = (element, formdata, formName) => {
   // if there was a blur event, this will be true, else false
   newElement.touched = element.blur;
   newFormdata[element.id] = newElement;
-  console.log(newFormdata);
+
   return newFormdata;
 }
 
 export const generateData = (formdata, formName) => {
   let dataToSubmit = {};
   for(let key in formdata) {
-    dataToSubmit[key] = formdata[key].value;
+    if(key !== 'confirmPassword') {
+      dataToSubmit[key] = formdata[key].value;
+    }
   }
   return dataToSubmit;
 }
