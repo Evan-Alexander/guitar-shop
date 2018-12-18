@@ -16,7 +16,7 @@ h2 {
 
 .page_container {
     min-height: 75vh;
-    padding-top: 85px;
+    padding-top: 6.5em;
 }
 .main_loader {
     text-align: center;
@@ -51,6 +51,10 @@ a {
 .dialog_alert {
     padding: 51px;
     font-size: 30px;
+}
+
+.my_link {
+    margin-top: 1em;
 }
 
 .load_more_container {
@@ -418,6 +422,7 @@ footer span .svg-inline--fa {
     margin: 0 auto;
 }
 
+
 .home_promotion .my_link a {
     margin: 1em auto;
 }
@@ -748,8 +753,8 @@ footer span .svg-inline--fa {
 
 .user_container {
     display:flex;
-    margin-bottom: 50px;
-    min-height: 700px;
+    margin-bottom: 3em;
+    min-height: 4em;
 }
 
 .user_container .user_left_nav {
@@ -759,21 +764,21 @@ footer span .svg-inline--fa {
 .user_container .user_left_nav .links a {
     display: block;
     border-bottom: 1px solid #dddddd;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 300;
-    padding: 10px 0px;
-    width: 280px;
+    padding: 1em 0px;
+    width: 100%;
 }
 
 .user_container  .user_right {
     flex-grow: 1;
-    padding: 0 0 0 29px;
+    padding: 0 0 0 1.5em;
 }
 
 .user_container .user_nfo_panel {
     background: #f8f8f8;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 1.5em;
+    margin-top: 1.5em;
 }
 
 .user_container .user_nfo_panel h1 {
@@ -784,9 +789,9 @@ footer span .svg-inline--fa {
 }
 
 
-.user_container .user_nfo_panel span{
+.user_container .user_nfo_panel span {
     display: block;
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 300;
 }
 
@@ -795,8 +800,8 @@ footer span .svg-inline--fa {
     display: flex;
     flex-wrap: wrap;
     background: white;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.75em;
+    margin-bottom: 0.75em;
     border: 1px solid #ebebeb;
 }
 
@@ -804,12 +809,12 @@ footer span .svg-inline--fa {
     flex-grow: 1;
 }
 
-.user_product_block .item .image{
+.user_product_block .item .image {
     height: 125px;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
-    margin-right: 10px;
+    margin-right: 0.75em;
 }
 .user_product_block .item.btn {
     width: 0px;
@@ -888,6 +893,9 @@ footer span .svg-inline--fa {
     body{ 
         font-size: 14px;
         transition: all .3s ease-in;
+    }
+    .page_container {
+        padding-top: 9em;
     }
 
 }
