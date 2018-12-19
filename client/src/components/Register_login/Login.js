@@ -65,6 +65,7 @@ class Login extends Component {
         .then(response => {
           if(response.payload.loginSuccess) {
             console.log(response.payload);
+            this.props.history.push('/user/dashboard');
           } else {
             this.setState({
               formError: true
@@ -98,7 +99,7 @@ class Login extends Component {
             </div>
             : null
           }
-          <button onClick={(e) => this.submitForm(e)}>
+          <button onClick={(event) => this.submitForm(event)}>
             Log in
           </button>
         </form>
