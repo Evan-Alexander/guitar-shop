@@ -288,6 +288,7 @@ header a {
 header .container-fluid .right{
    border-right: 1px solid #eeeeee;
 }
+
 header .container-fluid .right .top ,
 header .container-fluid .right .bottom {
     text-transform: uppercase;
@@ -307,20 +308,14 @@ header .container-fluid .right .top {
     border-bottom: 1px solid #ffffff;
 }
 
-header .cart_link {
-    display: inline-block;
-    position: relative;
-}
-
 header .cart_link span {
-    position: absolute;
     background: red;
-    top: 2px;
     color: #ffff;
-    left: -8px;
     border-radius: 50%;
     padding: 0px 7px 2px 7px;
     font-size: 12px;
+    margin-right: -12px;
+
 }
 header .log_out_link {
     cursor: pointer;
@@ -332,7 +327,6 @@ header .log_out_link {
 /*============================
             FOOTER
 ==============================*/
-
 
 
 footer .logo {
@@ -351,6 +345,7 @@ footer h2 {
 footer .icon {
     padding-right: 2%;
 }
+
 footer span .svg-inline--fa {
     font-size: 1.5em;
 
@@ -761,6 +756,7 @@ footer span .svg-inline--fa {
     display:flex;
     margin-bottom: 3em;
     min-height: 4em;
+    margin-top: 1.5em;
 }
 
 .user_container .user_left_nav {
@@ -791,7 +787,7 @@ footer span .svg-inline--fa {
     margin: 0 0 20px 0;
     line-height: 32px;
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 2em;
 }
 
 
@@ -944,8 +940,16 @@ footer span .svg-inline--fa {
 
     header .logo {
       border-right: none;
-      margin-top: 30px;
+      padding: 11px 11px 0px;
     }
+
+    header .cart_link span {
+      background: red;
+      color: #ffff;
+      border-radius: 50%;
+      padding: 0px 6px 1px 6px;
+      font-size: 10px;
+  }
     .page_container {
       padding-top: 9em;
     }
@@ -961,6 +965,14 @@ footer span .svg-inline--fa {
     .home_promotion .tag.title {
       font-size: 3em;
     }
+
+    .user_container {
+      margin-top: 6em;
+    }
+
+    .user_container .user_nfo_panel h1 {
+      font-size: 1.75em;
+  }
 
  }
 
