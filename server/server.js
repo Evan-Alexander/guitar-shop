@@ -28,8 +28,11 @@ const { admin } = require('./middleware/admin');
 //=====================
 
 // GET BY ARRIVAL
+// '/articles?sortBy=createdAt&order=desc&limit=4'
 
 // GET BY AMOUNT SOLD
+// '/ariticles?sortBy=sold&order=desc&limit=100'
+
 app.get('/api/product/articles', (req, res) => {
   let order = req.query.order ? req.query.order : 'asc';
   let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
