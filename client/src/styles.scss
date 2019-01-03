@@ -434,20 +434,20 @@ footer span .svg-inline--fa {
 ==============================*/
 
 .card_block {
-    margin: 110px 0px;
+    margin: 5em 0px;
 }
 
 .card_block .title {
     text-transform: uppercase;
     text-align: center;
-    font-size: 25px;
+    font-size: 2em;
     margin-bottom: 50px;
 }
 
 .card_block_shop .card_item_wrapper {
     float: left;
     width: 33.3%;
-    margin-bottom: 20px;
+    margin-bottom: 1.5em;
 }
 
 /*============================
@@ -485,29 +485,29 @@ footer span .svg-inline--fa {
 }
 
 .card_item_wrapper .tags .brand {
-    font-size: 17px;
+    font-size: 1.2em;
     font-weight: 700;
     color: #2196F3;
 }
 
 .card_item_wrapper .tags .name {
-    font-size: 21px;
+    font-size: 1.5em;
     font-weight: 700;
 }
 
 .card_item_wrapper .tags .price {
     font-weight: 300;
-    font-size: 21px;
+    font-size: 1.5em;
 }
 
 .card_item_wrapper .actions {
     display: flex;
-    padding: 15px 0 10px 0;
+    padding: 1em 0 0.75em 0;
 }
 
 .card_item_wrapper .actions .button_wrapp:nth-child(1) {
     flex-grow: 1;
-    padding-right: 10px;
+    padding-right: 0.5em;
 }
 
 .card_item_wrapper.grid_bars {
@@ -972,6 +972,10 @@ footer span .svg-inline--fa {
 
     .user_container .user_nfo_panel h1 {
       font-size: 1.75em;
+    }
+
+    .card_item_wrapper {
+      width: 80%;
   }
 
  }

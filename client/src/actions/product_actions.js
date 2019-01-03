@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { 
   GET_PRODUCTS_BY_AMOUNT_SOLD,
-  GET_PRODUCTS_BY_ARRIVAL
+  GET_PRODUCTS_BY_ARRIVAL,
+  GET_BRANDS,
+  GET_WOOD_TYPE
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -26,4 +28,28 @@ export function getProductsByArrival() {
     type: GET_PRODUCTS_BY_ARRIVAL,
     payload: request
   }
+}
+
+/////////////////////
+// CATEGORIES
+/////////////////////
+
+export function getBrands() {
+  const request = axios.get(`${PRODUCT_SERVER}/brands`)
+    .then(response => response.data);
+
+  return {
+    type: GET_BRANDS,
+    payload: request
+  }
+}
+
+export function getWoodType() {
+  const request = axios.get(`${PRODUCT_SERVER}/woods`)
+    .then(response => response.data);
+
+    return {
+      type: GET_WOOD_TYPE,
+      payload: request
+    }
 }
