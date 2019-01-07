@@ -4,7 +4,7 @@ import PageTop from '../utils/page_top';
 import { frets, price } from '../utils/Form/fixed_categories';
 
 import { connect } from 'react-redux';
-import { getBrands, getWoodType } from '../../actions/product_actions';
+import { getProductsToShop, getBrands, getWoodType } from '../../actions/product_actions';
 
 import CollapsableCheckboxes from '../utils/collapsableCheckboxes';
 import CollapsableRadios from '../utils/collapsableRadios';
@@ -25,7 +25,15 @@ class Shop extends Component {
   componentDidMount() {
     this.props.dispatch(getBrands());
     this.props.dispatch(getWoodType());
+    
+    this.props.dispatch(getProductsToShop(
+      this.state.skip,
+      this.state.limit,
+      this.state.filters
+    ))
   }
+
+  // TODO: Price keeps coming up as a string.  Needs to be an integer.
 
   handlePrice = value => {
     const data = price;
@@ -36,7 +44,7 @@ class Shop extends Component {
         array = data[key].array
       }
     }
-    
+    console.log('handle price fired!');
     return array;
   }
 
@@ -46,17 +54,33 @@ class Shop extends Component {
 
     if(category === "price") {
       let priceValues = this.handlePrice(filters);
-      newFilters[category] = priceValues
+      newFilters[category] = priceValues;
+
     }
+    this.showFilteredResults(newFilters);
+
     this.setState({
       filters: newFilters
     })
-    console.log(this.state.filters)
 
   }
+
+  showFilteredResults = filters => {
+    this.props.dispatch(getProductsToShop(
+      0,
+      this.state.limit,
+      filters
+    )).then(() => {
+      this.setState({
+        skip: 0
+      })
+    })
+  }
+
   render() {
-    console.log(this.state.filters);
     const products = this.props.products;
+    console.log(this.state.filters)
+
     return (
       <div>
         <PageTop 
