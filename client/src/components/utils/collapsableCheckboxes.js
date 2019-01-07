@@ -49,7 +49,7 @@ class CollapsableCheckboxes extends Component {
       this.props.list.map((value) => (
 
         <ListItem key={value._id} style={{padding: '.75em 0'}}>
-          <ListItemText primary={value.name} />
+          <ListItemText primary={value.name} className="listItemText"/>
           <ListItemSecondaryAction>
             <Checkbox 
               color="primary"

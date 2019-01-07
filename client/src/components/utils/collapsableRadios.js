@@ -53,6 +53,7 @@ class CollapsableRadios extends Component {
           value={`${value._id}`}
           control={<Radio />}
           label={value.name}
+          className="radioItemText"
         />
       ))
     :null
