@@ -9,6 +9,8 @@ import { getProductsToShop, getBrands, getWoodType } from '../../actions/product
 import CollapsableCheckboxes from '../utils/collapsableCheckboxes';
 import CollapsableRadios from '../utils/collapsableRadios';
 
+import LoadMoreCards from './loadMoreCards';
+
 class Shop extends Component {
 
   state = {
@@ -25,7 +27,7 @@ class Shop extends Component {
   componentDidMount() {
     this.props.dispatch(getBrands());
     this.props.dispatch(getWoodType());
-    
+
     this.props.dispatch(getProductsToShop(
       this.state.skip,
       this.state.limit,
@@ -39,8 +41,8 @@ class Shop extends Component {
     const data = price;
     let array = [];
 
-    for(let key in data) {
-      if(data[key]._id === parseInt(value, 10)) {
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
         array = data[key].array
       }
     }
@@ -49,10 +51,10 @@ class Shop extends Component {
   }
 
   handleFilters = (filters, category) => {
-    const newFilters = {...this.state.filters}
+    const newFilters = { ...this.state.filters }
     newFilters[category] = filters;
 
-    if(category === "price") {
+    if (category === "price") {
       let priceValues = this.handlePrice(filters);
       newFilters[category] = priceValues;
 
@@ -83,40 +85,57 @@ class Shop extends Component {
 
     return (
       <div>
-        <PageTop 
+        <PageTop
           title="Browse Products"
         />
         <div className="container">
-            <div className="col-sm-4 col-xs-12">
+          <div className="row">
+            <div className="col-md-4 col-xs-12">
 
-              <CollapsableCheckboxes 
+              <CollapsableCheckboxes
                 initState={true}
                 title="Brands"
                 list={products.brands}
                 handleFilters={(filters) => this.handleFilters(filters, 'brand')}
               />
-              <CollapsableCheckboxes 
+              <CollapsableCheckboxes
                 initState={false}
                 title="Frets"
                 list={frets}
                 handleFilters={(filters) => this.handleFilters(filters, 'frets')}
               />
-              <CollapsableCheckboxes 
+              <CollapsableCheckboxes
                 initState={true}
                 title="Wood"
                 list={products.woodType}
                 handleFilters={(filters) => this.handleFilters(filters, 'wood')}
               />
-              <CollapsableRadios 
+              <CollapsableRadios
                 initState={true}
                 title="Price"
                 list={price}
                 handleFilters={(filters) => this.handleFilters(filters, 'price')}
               />
             </div>
-            <div className="col-sm-8 col-xs-12">
-              right
-            </div> 
+            <div className="col-md-8 col-xs-12">
+              <div className="shop_options">
+                <div className="shop_grids clear">
+                  grids
+                </div>
+              </div>
+              <div>
+                <LoadMoreCards 
+                  grid={this.state.grid}
+                  limit={this.state.limit}
+                  size={products.toShopSize}
+                  products={products.toShop}
+                  loadMore={() => console.log('load more')}
+                />
+              </div>
+              
+            </div>
+          </div>
+
         </div>
       </div>
     )
