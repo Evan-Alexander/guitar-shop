@@ -9,6 +9,14 @@ const LoadMoreCards = (props) => {
         grid={props.grid}
         list={props.products}
       />
+      {
+        props.size > 0 && props.size >= props.limit ?
+          <div className="load_more_container">
+            <span onClick={() => props.loadMore()}>Load More</span>
+          </div>
+        : null
+      }
+
     </div>
   )
 }
