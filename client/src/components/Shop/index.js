@@ -10,6 +10,9 @@ import CollapsableCheckboxes from '../utils/collapsableCheckboxes';
 import CollapsableRadios from '../utils/collapsableRadios';
 
 import LoadMoreCards from './loadMoreCards';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
 
 class Shop extends Component {
 
@@ -94,6 +97,12 @@ class Shop extends Component {
     })
   }
 
+  handleGrid = () => {
+    this.setState({
+      grid: !this.state.grid ? 'grid_bars' : ''
+    })
+  }
+
   render() {
     const products = this.props.products;
 
@@ -134,7 +143,18 @@ class Shop extends Component {
             <div className="col-sm-9 col-xs-12">
               <div className="shop_options">
                 <div className="shop_grids clear">
-                  grids
+                  <div
+                    className={`grid_btn ${this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faTh} />
+                  </div>
+                  <div
+                    className={`grid_btn ${!this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faBars} />
+                  </div>
                 </div>
               </div>
               <div>
