@@ -31,7 +31,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
 
           } else {
             if(reload === false) {
-              
+         
               this.props.history.push('/user/dashboard')
             }
 
@@ -59,6 +59,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
     }
   }
   function mapStateToProps(state) {
+    console.log(state.user)
     return {
       user: state.user
     }
