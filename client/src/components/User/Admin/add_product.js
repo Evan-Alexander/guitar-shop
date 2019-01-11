@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserLayout from '../../../hoc/user_layout';
 
 import FormField from '../../utils/Form/formfield';
-import { update, generateData, isFormValid } from '../../utils/Form/formActions';
+import { update, generateData, isFormValid, populateOptionFields } from '../../utils/Form/formActions';
 
 import { connect } from 'react-redux';
 import { getBrands, getWoodType } from '../../../actions/product_actions';
@@ -90,8 +90,8 @@ class AddProduct extends Component {
           label: 'Shipping',
           name: 'shipping_input',
           options: [
-            {key: true, value: 'Yes'},
-            {key: false, value: 'No'}
+            { key: true, value: 'Yes' },
+            { key: false, value: 'No' }
           ]
         },
         validation: {
@@ -109,8 +109,8 @@ class AddProduct extends Component {
           label: 'Available, in stock',
           name: 'available_input',
           options: [
-            {key: true, value: 'Yes'},
-            {key: false, value: 'No'}
+            { key: true, value: 'Yes' },
+            { key: false, value: 'No' }
           ]
         },
         validation: {
@@ -144,10 +144,10 @@ class AddProduct extends Component {
           label: 'Frets',
           name: 'frets_input',
           options: [
-            {key: 20, value: 20},            
-            {key: 21, value: 21},
-            {key: 22, value: 22},
-            {key: 24, value: 24},
+            { key: 20, value: 20 },
+            { key: 21, value: 21 },
+            { key: 22, value: 22 },
+            { key: 24, value: 24 },
           ]
         },
         validation: {
@@ -165,8 +165,8 @@ class AddProduct extends Component {
           label: 'Publish',
           name: 'publish_input',
           options: [
-            {key: true, value: 'Public'},
-            {key: false, value: 'Hidden'}
+            { key: true, value: 'Public' },
+            { key: false, value: 'Hidden' }
           ]
         },
         validation: {
@@ -180,17 +180,106 @@ class AddProduct extends Component {
     }
   }
 
+  updateFields = (newFormData) => {
+    this.setState({
+      formdata: newFormData
+    })
+  }
+
+  componentDidMount() {
+    const formdata = this.state.formdata;
+
+    this.props.dispatch(getBrands())
+      .then(response => {
+        const newFormData = populateOptionFields(formdata, this.props.products.brands, 'brand');
+        this.updateFields(newFormData);
+      });
+
+    this.props.dispatch(getWoodType())
+      .then(response => {
+        const newFormData = populateOptionFields(formdata, this.props.products.woodType, 'wood');
+        this.updateFields(newFormData);
+      })
+  }
+
   render() {
     return (
       <UserLayout>
         <div>
           <h1>Add Product</h1>
           <form onSubmit={(event) => this.submitForm(event)}>
-            <FormField 
+            <FormField
               id={'name'}
               formdata={this.state.formdata.name}
               change={(element) => this.updateForm(element)}
             />
+            <FormField
+              id={'description'}
+              formdata={this.state.formdata.description}
+              change={(element) => this.updateForm(element)}
+            />
+            <FormField
+              id={'price'}
+              formdata={this.state.formdata.price}
+              change={(element) => this.updateForm(element)}
+            />
+
+
+            <div className="form_divider"></div>
+
+            <FormField
+              id={'brand'}
+              formdata={this.state.formdata.brand}
+              change={(element) => this.updateForm(element)}
+            />
+            <FormField
+              id={'available'}
+              formdata={this.state.formdata.available}
+              change={(element) => this.updateForm(element)}
+            />
+            <FormField
+              id={'shipping'}
+              formdata={this.state.formdata.shipping}
+              change={(element) => this.updateForm(element)}
+            />
+
+            <div className="form_divider"></div>
+
+            <FormField
+              id={'wood'}
+              formdata={this.state.formdata.wood}
+              change={(element) => this.updateForm(element)}
+            />
+            <FormField
+              id={'frets'}
+              formdata={this.state.formdata.frets}
+              change={(element) => this.updateForm(element)}
+            />
+
+            <div className="form_divider"></div>
+
+            <FormField
+              id={'publish'}
+              formdata={this.state.formdata.publish}
+              change={(element) => this.updateForm(element)}
+            />
+            {
+              this.state.formSuccess ? 
+              <div className="form_success">
+                Success
+              </div>
+              :null
+            }
+            {
+              this.state.formError ?
+                <div className="error_label">
+                  Please check your data
+                </div>
+              :null
+            }
+            <button onClick={(event) => this.submitForm(event)}>
+              Add Product
+            </button>
           </form>
         </div>
       </UserLayout>

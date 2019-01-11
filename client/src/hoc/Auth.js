@@ -59,7 +59,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
     }
   }
   function mapStateToProps(state) {
-    console.log(state.user)
+
     return {
       user: state.user
     }
