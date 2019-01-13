@@ -850,24 +850,37 @@ footer span .svg-inline--fa {
   margin-bottom: 40px;
 }
 
-.dropzone_box {
+
+
+.dropzone .wrap {
   float: left;
   width: 25%;
   height: 160px;
   padding: 10px;
   box-sizing: border-box;
+  background:#999592;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dropzone_box .wrap {
+.dropzone .wrap svg {
+  font-size: 3em;
+}
+
+.dropzone_box  .wrap {
   background: #eaeaea;
-  height: 100%;
   text-align: center;
-  padding-top: 31px;
+  padding-top: 2.5em;
   box-sizing: border-box;
-  font-size: 49px;
+  font-size: 3em;
   background-size: contain !important;
   background-position: center center !important;
-  border: 1px solid #eaeaea;
+}
+
+.dropzone_box.dropzone_extras {
+  text-align: center;
+  padding-top: 4em;
 }
 
 /* Large devices (desktops, 992px and up) */
