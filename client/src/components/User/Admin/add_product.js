@@ -240,6 +240,8 @@ class AddProduct extends Component {
     let formIsValid = isFormValid(this.state.formdata, 'products');
 
     if(formIsValid) {
+      console.log('valid?')
+      console.log(dataToSubmit)
       this.props.dispatch(addProduct(dataToSubmit)).then(() => {
         if(this.props.products.addProduct.success) {
           this.resetFieldHandler();
@@ -271,8 +273,17 @@ class AddProduct extends Component {
       })
   }
 
-  imagesHandler = () => {
-
+  imagesHandler = (images) => {
+    console.log('imagesHandler: ', 'hello?');
+    console.log('imagesHandler: ', images);
+    const newFormData = {
+      ...this.state.formdata
+    }
+    newFormData['images'].value = images;
+    newFormData['images'].valid = true;
+    this.setState({
+      formdata: newFormData
+    })
   }
 
   render() {
@@ -283,10 +294,10 @@ class AddProduct extends Component {
           <form onSubmit={(event) => this.submitForm(event)}>
 
             <FileUpload 
-              imagesHandler={(image) => this.imagesHandler(image)}
+              imagesHandler={(images) => this.imagesHandler(images)}
               reset={this.state.formSuccess}
             />
-            
+
             <FormField
               id={'name'}
               formdata={this.state.formdata.name}

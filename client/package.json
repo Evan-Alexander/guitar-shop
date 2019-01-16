@@ -13,7 +13,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-dropzone": "^8.0.3",
+    "react-dropzone": "^4.3.0",
     "react-images": "^0.5.19",
     "react-moment": "^0.8.4",
     "react-paypal-express-checkout": "^1.0.5",

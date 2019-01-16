@@ -10,7 +10,6 @@ import {
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
-import add_product from '../components/User/Admin/add_product';
 
 export function getProductsByAmountSold() {
 // '/ariticles?sortBy=sold&order=desc&limit=100'

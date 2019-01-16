@@ -864,18 +864,16 @@ footer span .svg-inline--fa {
   align-items: center;
 }
 
-.dropzone .wrap svg {
-  font-size: 3em;
-}
-
 .dropzone_box  .wrap {
   background: #eaeaea;
   text-align: center;
-  padding-top: 2.5em;
   box-sizing: border-box;
-  font-size: 3em;
   background-size: contain !important;
   background-position: center center !important;
+}
+
+.dropzone_box  .wrap svg{
+  font-size: 2em;
 }
 
 .dropzone_box.dropzone_extras {
