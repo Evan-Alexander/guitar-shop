@@ -4,7 +4,7 @@ import PageTop from '../utils/page_top';
 import { frets, price } from '../utils/Form/fixed_categories';
 
 import { connect } from 'react-redux';
-import { getProductsToShop, getBrands, getWoodType } from '../../actions/product_actions';
+import { getProductsToShop, getBrands, getWoodTypes } from '../../actions/product_actions';
 
 import CollapsableCheckboxes from '../utils/collapsableCheckboxes';
 import CollapsableRadios from '../utils/collapsableRadios';
@@ -29,7 +29,7 @@ class Shop extends Component {
   }
   componentDidMount() {
     this.props.dispatch(getBrands());
-    this.props.dispatch(getWoodType());
+    this.props.dispatch(getWoodTypes());
 
     this.props.dispatch(getProductsToShop(
       this.state.skip,

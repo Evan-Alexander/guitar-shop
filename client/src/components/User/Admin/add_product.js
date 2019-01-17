@@ -15,9 +15,9 @@ import FileUpload from '../../utils/Form/file_upload';
 import { connect } from 'react-redux';
 import { 
   getBrands, 
-  getWoodType, 
+  getWoodTypes, 
   addProduct,
-  clearProduct 
+  clearProduct
 } from '../../../actions/product_actions';
 
 class AddProduct extends Component {
@@ -240,8 +240,7 @@ class AddProduct extends Component {
     let formIsValid = isFormValid(this.state.formdata, 'products');
 
     if(formIsValid) {
-      console.log('valid?')
-      console.log(dataToSubmit)
+   
       this.props.dispatch(addProduct(dataToSubmit)).then(() => {
         if(this.props.products.addProduct.success) {
           this.resetFieldHandler();
@@ -266,7 +265,7 @@ class AddProduct extends Component {
         this.updateFields(newFormData);
       });
 
-    this.props.dispatch(getWoodType())
+    this.props.dispatch(getWoodTypes())
       .then(response => {
         const newFormData = populateOptionFields(formdata, this.props.products.woodType, 'wood');
         this.updateFields(newFormData);
