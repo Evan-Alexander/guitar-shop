@@ -27,6 +27,18 @@ const CustomButton = (props) => {
           <FontAwesomeIcon icon={faShoppingBag} />
         </div>
       break;
+      case 'add_to_cart_link':
+          template = 
+          <div 
+            className="add_to_cart_link"
+            onClick={() => {
+              props.runAction()
+            }}
+          >
+            <FontAwesomeIcon icon={faShoppingBag} />
+            Add to cart
+          </div>
+      break;
       default:
         template='';
     }

@@ -90,8 +90,8 @@ class ManageWood extends Component {
 
   render() {
     return (
-      <div className="admin_category_wrapper">
-        <h1>Woods</h1>
+      <div className="admin_category_wrapper wood_wrapper">
+        <h1>Wood Type</h1>
         <div className="admin_two_column">
           <div className="left">
             <div className="brands_container">{this.showCategoryItems()}</div>
