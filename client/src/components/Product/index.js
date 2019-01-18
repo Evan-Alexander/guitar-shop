@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { getProductDetail, clearProductDetail } from '../../actions/product_actions';
 import ProductInfo from './product_info';
+import ProductImg from './productImage';
 
 class ProductDetail extends Component {
 
@@ -30,7 +31,11 @@ class ProductDetail extends Component {
             this.props.products.prodDetail ?
     
                 <div className="row">
-                  <div className="col-md-6">images</div>
+                  <div className="col-md-6">
+                    <ProductImg 
+                      detail={this.props.products.prodDetail}
+                    />
+                  </div>
                   <div className="col-md-6">
                     <ProductInfo 
                       addToCart={(id) => this.addToCartHandler(id)}

@@ -622,11 +622,6 @@ footer span .svg-inline--fa {
   padding-left: 20px;
 }
 
-// .product_detail_wrapper .product_action,
-// .product_detail_wrapper .product_specifications {
-//   margin-bottom: 15px;
-// }
-
 .product_detail_wrapper .product_action .price {
   font-size: 2em;
   font-weight: 300;
@@ -691,11 +686,18 @@ footer span .svg-inline--fa {
   cursor: pointer;
   height: 200px;
   width: 50%;
-  background-size: cover !important;
-  background-position: bottom center !important;
-  border: 1px solid #e8e8e8;
+  background-size: contain !important;
+  background-position: center center !important;
   box-sizing: border-box;
   float: left;
+}
+
+#lightboxBackdrop button[class^="close_"] {
+  margin-top: 0;
+}
+
+#lightboxBackdrop button:focus {
+  outline: none;
 }
 
 .paypal_button_container {
@@ -905,6 +907,9 @@ footer span .svg-inline--fa {
     width: 80%;
     margin-left: 17%;
   }
+  .product_detail_wrapper .product_image_container {
+    padding-right: 0;
+}
 
 }
 
