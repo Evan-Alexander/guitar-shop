@@ -6,6 +6,8 @@ const cloudinary = require("cloudinary");
 
 const app = express();
 const mongoose = require("mongoose");
+const async = require("async");
+
 require("dotenv").config();
 
 mongoose.Promise = global.Promise;
@@ -26,6 +28,7 @@ const { User } = require("./models/user");
 const { Brand } = require("./models/brand");
 const { Wood } = require("./models/wood");
 const { Product } = require("./models/product");
+const { Payment } = require("./models/payment");
 
 // Middleware
 const { auth } = require("./middleware/auth");
@@ -341,6 +344,71 @@ app.get("/api/users/removeFromCart", auth, (req, res) => {
     }
   )
 });
+
+app.post('/api/users/successBuy', auth, (req, res) => {
+
+  let history = [];
+  let transactionData = {};
+  // User History
+  req.body.cartDetail.forEach((item) => {
+    history.push({
+      dateOfPurchase: Date.now(),
+      name: item.name,
+      brand: item.brand.name,
+      id: item._id,
+      price: item.price,
+      quantity: item.quantity,
+      paymentID: req.body.paymentData.paymentID
+    })
+  })
+  // Payment Dashboard - grabbing userInfo from the auth method which returns the user
+  transactionData.user = {
+    id: req.user._id,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    email: req.user.email
+  }
+  transactionData.data = req.body.paymentData; // Getting payment info from the onSuccess paypal method
+  transactionData.product = history; // Getting modified product object only relevent to purchase history
+
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $push: { history: history }, $set: { cart: [] } },
+    { new: true },
+    (err, user) => {
+      if(err) return res.json({ success: false, err });
+      
+      const payment = new Payment(transactionData);
+      payment.save((err, doc) => {
+        if(err) return res.json({ success: false, err });
+
+        let products = [];
+        doc.product.forEach(item => {
+          products.push({ id: item.id, quantity: item.quantity })
+        })
+        // eachOfSeries - gets 3 arguments (productsToLoopThrough, update, whatToDoOnceAllUpdatesAreDone)
+        async.eachSeries(products, (item, callback) => {
+          Product.update(
+            { _id: item.id },
+            { $inc: {
+              "sold": item.quantity
+            }},
+            { new: false },
+            callback
+          )
+        }, (err) => {
+          if(err) return res.json({ success: false, err })
+          console.log('resetting cart and cartDetail');
+          res.status(200).json({
+            success: true,
+            cart: [],
+            cartDetail: []
+          })
+        })
+      });
+    }
+  )
+})
 
 const port = process.env.PORT || 3002;
 
