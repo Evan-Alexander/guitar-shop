@@ -791,10 +791,17 @@ footer span .svg-inline--fa {
   padding: 0.75em;
   margin-bottom: 0.75em;
   border: 1px solid #ebebeb;
+  justify-content: center;
+  align-items: center;
 }
 
 .user_product_block .item {
   flex-grow: 1;
+  text-align: center;
+}
+
+.user_product_block .item .multiplier {
+  padding-top: 50%;
 }
 
 .user_product_block .item .image {
@@ -811,10 +818,8 @@ footer span .svg-inline--fa {
 .user_product_block .cart_remove_btn {
   cursor: pointer;
   background: #f44336;
-  display: inline-block;
   padding: 5px 10px;
   color: #ffffff;
-  margin-top: 50px;
 }
 
 /*=============================
