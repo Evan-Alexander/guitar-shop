@@ -456,7 +456,7 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
 // Default Production URL
 if( process.env.NODE_ENV === 'production' ) {
   const path = require('path');
-  app.get('/*', (res, res) => {
+  app.get('/*', (req, res) => {
     res.sendfile(path.resolve(__dirname, '../client', 'build', 'index.html'))
   })
 }
