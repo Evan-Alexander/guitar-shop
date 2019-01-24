@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const SALT_I = 10;
 require('dotenv').config();
 
+mongoose.set('useCreateIndex', true)
+
 const userSchema = mongoose.Schema({
   email: {
     type: String,

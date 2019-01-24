@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true)
+
 const brandSchema = mongoose.Schema({
   name: {
     required: true,

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true)
+
 const woodSchema = mongoose.Schema({
   name: {
     required: true,

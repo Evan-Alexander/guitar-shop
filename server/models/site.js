@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true)
+
 const siteSchema = mongoose.Schema({
   featured: {
     required: true,

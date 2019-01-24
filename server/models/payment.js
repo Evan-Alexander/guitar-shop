@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true)
+
 const paymentSchema = mongoose.Schema({
   user: {
     type: Array,
