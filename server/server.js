@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(express.static('client/build'))
+
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -454,13 +456,12 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
 })
 
 // Default Production URL
-if(process.env.NODE_ENV === 'production'){
-  //set static folder
-  app.use(express.static('client/build'));
+if( process.env.NODE_ENV === 'production' ){
+  const path = require('path');
+  app.get('/*',(req,res)=>{
+      res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
+  })
 }
-app.get('*',(req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
 
 
 const port = process.env.PORT || 3002;
