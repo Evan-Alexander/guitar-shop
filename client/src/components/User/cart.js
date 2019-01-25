@@ -5,10 +5,6 @@ import ProductBlock from '../utils/User/product_block';
 import { connect } from 'react-redux';
 import { getCartItems, removeCartItem, onPurchaseSuccess } from '../../actions/user_actions';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFrownOpen } from '@fortawesome/free-solid-svg-icons';
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
-
 import Paypal from '../utils/paypal';
 
 class UserCart extends Component {
