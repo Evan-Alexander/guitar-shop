@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary");
-const path = require('path');
 
 const app = express();
 const mongoose = require("mongoose");
@@ -18,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static("client/build"));
 
 
 cloudinary.config({
@@ -455,12 +454,12 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
   )
 })
 
-// Default Production URL
-if( process.env.NODE_ENV === 'production' ){
-  const path = require('path');
-  app.get('/*',(req,res)=>{
-      res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
-  })
+// DEFAULT
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
+  app.get("/*", (req, res) => {
+    res.sendfile(path.resolve(__dirname, "../client", "build", "index.html"));
+  });
 }
 
 
