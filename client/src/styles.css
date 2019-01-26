@@ -1,4 +1,4 @@
-@import "./styles_colors.scss";
+
 body {
   margin: 0;
   padding: 0;
@@ -38,15 +38,15 @@ a {
 }
 
 .bck_b_light {
-  background: $light_grey;
+  background:  #999592;
 }
 
 .text-light-grey {
-  color: $light_grey;
+  color:  #999592;
 }
 
 .bck_b_dark {
-  background: $dark_grey;
+  background: #272723;
 }
 
 .margin-b3 {
@@ -208,7 +208,7 @@ select {
   text-transform: uppercase;
   padding: 0.5em;
   display: table;
-  background: $button_default_color;
+  background: #e1ddc3;
 }
 
 .card_link,

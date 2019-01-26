@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
-import './styles.scss';
+import './styles.css';
 
 import Layout from './hoc/layout';
 import Auth from './hoc/Auth';
