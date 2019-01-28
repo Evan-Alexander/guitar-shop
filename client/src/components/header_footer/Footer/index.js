@@ -4,6 +4,7 @@ import { faCompass } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 const Footer = ({ data }) => {
   return data.siteData ? (
     <footer className="bck_b_dark">
