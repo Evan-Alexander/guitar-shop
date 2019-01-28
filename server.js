@@ -453,12 +453,9 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
   )
 })
 
-// Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, '/client/build')));
-
 //production mode
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, '/client/build')));
   //
   app.get('*',(req,res)=>{
     res.sendfile(path.resolve(__dirname,'/client','build','index.html'))
