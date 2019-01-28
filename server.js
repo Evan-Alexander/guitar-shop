@@ -18,8 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static('client/build'));
-
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -391,7 +389,7 @@ app.post('/api/users/successBuy', auth, (req, res) => {
         doc.product.forEach(item => {
           products.push({ id: item.id, quantity: item.quantity })
         })
-        // eachOfSeries - gets 3 arguments (productsToLoopThrough, update, whatToDoOnceAllUpdatesAreDone)
+        // eachSeries - gets 3 arguments (productsToLoopThrough, update, whatToDoOnceAllUpdatesAreDone)
         async.eachSeries(products, (item, callback) => {
           Product.update(
             { _id: item.id },
@@ -455,13 +453,22 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
   )
 })
 
-// DEFAULT
-if (process.env.NODE_ENV === "production") {
-  const path = require("path");
-  app.get("/*", (req, res) => {
-    res.sendfile(path.resolve(__dirname, "../client", "build", "index.html"));
-  });
+// Serve the static files from the React app
+// app.use(express.static(path.join(__dirname, '/client/build')));
+
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  //
+  app.get('*',(req,res)=>{
+    res.sendfile(path.resolve(__dirname,'/client','build','index.html'))
+})
 }
+//build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 
 const port = process.env.PORT || 3002;

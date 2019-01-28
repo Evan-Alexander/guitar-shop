@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const links = [
   {
     name: 'My Account',
-    linkTo: 'user/dashboard'
+    linkTo: '/user/dashboard'
   },
   {
     name: 'User information',

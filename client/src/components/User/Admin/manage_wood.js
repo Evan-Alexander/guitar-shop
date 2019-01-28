@@ -22,7 +22,7 @@ class ManageWood extends Component {
         config: {
           name: "name_input",
           type: "text",
-          placeholder: "Enter the wood"
+          placeholder: "Enter wood type"
         },
         validation: {
           required: true

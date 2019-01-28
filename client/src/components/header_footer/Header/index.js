@@ -39,7 +39,7 @@ class Header extends Component {
       },
       {
         name: 'Log out',
-        linkTo: '/use/logout',
+        linkTo: '/user/logout',
         public: false
       }
     ]
@@ -55,6 +55,7 @@ class Header extends Component {
 
   cartLink = (item, i) => {
     const user = this.props.user.userData;
+    console.log(this.props.user.userData)
 
     return (
       <div className="cart_link" key={i}>
@@ -81,8 +82,10 @@ class Header extends Component {
 
   showLinks = (type) => {
     let list = [];
+    console.log('show links fired')
 
     if(this.props.user.userData) {
+      console.log('getting user data?')
       type.forEach((item) => {
         if(!this.props.user.userData.isAuth) {
           if(item.public) {
