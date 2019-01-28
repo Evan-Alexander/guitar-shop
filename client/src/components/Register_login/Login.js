@@ -64,7 +64,7 @@ class Login extends Component {
       this.props.dispatch(loginUser(dataToSubmit))
         .then(response => {
           if(response.payload.loginSuccess) {
-            console.log(response.payload);
+            console.log("form payload success", response.payload);
             this.props.history.push('/user/dashboard');
           } else {
             this.setState({
@@ -99,7 +99,7 @@ class Login extends Component {
             </div>
             : null
           }
-          <button onClick={(event) => this.submitForm(event)}>
+          <button type="submit">
             Log in
           </button>
         </form>

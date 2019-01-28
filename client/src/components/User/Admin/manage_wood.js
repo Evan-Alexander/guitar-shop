@@ -97,7 +97,7 @@ class ManageWood extends Component {
             <div className="brands_container">{this.showCategoryItems()}</div>
           </div>
           <div className="right">
-            <form onSubmit={event => this.submitForm(event)}>
+            <form onSubmit={this.submitForm}>
               <FormField
                 id={"name"}
                 formdata={this.state.formdata.name}
@@ -107,7 +107,7 @@ class ManageWood extends Component {
               {this.state.formError ? (
                 <div className="error_label">Please check your data</div>
               ) : null}
-              <button onClick={event => this.submitForm(event)}>
+              <button type="submit">
                 Add wood
               </button>
             </form>

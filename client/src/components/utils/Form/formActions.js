@@ -34,15 +34,15 @@ export const update = (element, formdata, formName) => {
 
   newElement.value = element.event.target.value;
 
-  if(element.blur) {
+  if(newElement.value) {
     let validData = validate(newElement, formdata);
     newElement.valid = validData[0];
     newElement.validationMessage = validData[1];
   }
   // if there was a blur event, this will be true, else false
-  newElement.touched = element.blur;
+  newElement.touched = true;
   newFormdata[element.id] = newElement;
-
+  console.log("new element", newElement);
   return newFormdata;
 }
 
