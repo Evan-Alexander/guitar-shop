@@ -129,7 +129,7 @@ class Shop extends Component {
               <CollapsableCheckboxes
                 initState={true}
                 title="Wood"
-                list={products.woodType}
+                list={products.woods}
                 handleFilters={(filters) => this.handleFilters(filters, 'wood')}
               />
               <CollapsableRadios
