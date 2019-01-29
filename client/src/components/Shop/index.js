@@ -112,7 +112,7 @@ class Shop extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className="col-sm-4 col-xs-12">
+            <div className="col-sm-12 col-md-3">
 
               <CollapsableCheckboxes
                 initState={true}
@@ -139,7 +139,7 @@ class Shop extends Component {
                 handleFilters={(filters) => this.handleFilters(filters, 'price')}
               />
             </div>
-            <div className="col-sm-8 col-xs-12">
+            <div className="col-sm12 col-md-9">
               <div className="shop_options">
                 <div className="shop_grids clear">
                   <div

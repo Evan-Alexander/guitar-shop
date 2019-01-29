@@ -460,7 +460,6 @@ footer span .svg-inline--fa {
 }
 
 .card_item_wrapper .tags {
-  position: relative;
   border-bottom: 1px solid #f0f0f0;
 }
 
@@ -472,7 +471,7 @@ footer span .svg-inline--fa {
 }
 
 .card_item_wrapper .tags .brand {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 700;
   color: #2196f3;
 }
@@ -507,6 +506,7 @@ footer span .svg-inline--fa {
 .card_item_wrapper.grid_bars .image{
   height: auto;
   border: none;
+  max-width: 25%;
 }
 
 .card_item_wrapper.grid_bars .action_container {
@@ -522,20 +522,13 @@ footer span .svg-inline--fa {
 
 .card_item_wrapper.grid_bars .tags {
   border-bottom: 0px;
-  padding: 0.5em 1.3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card_item_wrapper.grid_bars .tags .brand {
   font-size: 1.3em;
-}
-
-.card_item_wrapper.grid_bars .tags .brand,
-.card_item_wrapper.grid_bars .tags .name {
-  float: left;
-}
-
-.card_item_wrapper.grid_bars .tags .price {
-  float: right;
 }
 
 .card_item_wrapper.grid_bars .actions {
@@ -896,6 +889,7 @@ footer span .svg-inline--fa {
 
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 1091px) {
+
   .card_block_shop .card_item_wrapper {
     width: 50%;
   }
@@ -952,6 +946,7 @@ footer span .svg-inline--fa {
     width: 150px;
   }
 }
+
 @media (min-width: 577px) {
   .card_item_wrapper.grid_bars {
     width: 100%;
@@ -1038,6 +1033,10 @@ footer span .svg-inline--fa {
   .brands_container .category_item {
     width: 125px;
     font-size: 1.5em;
+  }
+
+  .card_item_wrapper.grid_bars .tags .price {
+    font-size: 1.2em;
   }
 }
 
