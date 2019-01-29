@@ -34,13 +34,13 @@ export const update = (element, formdata, formName) => {
 
   newElement.value = element.event.target.value;
 
-  if(newElement.value) {
+  if(element.blur) {
     let validData = validate(newElement, formdata);
     newElement.valid = validData[0];
     newElement.validationMessage = validData[1];
   }
   // if there was a blur event, this will be true, else false
-  newElement.touched = true;
+  newElement.touched = element.blur;
   newFormdata[element.id] = newElement;
   console.log("new element", newElement);
   return newFormdata;
@@ -68,7 +68,6 @@ export const isFormValid = (formdata, formname) => {
 export const populateOptionFields = (formdata, arrayData = [], field) => {
   const newArray = [];
   const newFormData = {...formdata};
-
   arrayData.forEach(item => {
     newArray.push({ key: item._id, value: item.name });
   });

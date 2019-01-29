@@ -110,7 +110,6 @@ class UpdateUserInfo extends Component {
       formdata: newFormData
     });
 
-    console.log(this.state.formdata);
   }
 
   render() {
@@ -154,7 +153,7 @@ class UpdateUserInfo extends Component {
                 Something went wrong, please try again
               </div>
             ) : null}
-            <button onClick={e => this.submitForm(e)}>Create an Account</button>
+            <button onClick={e => this.submitForm(e)}>Update Account</button>
           </div>
         </div>
       </form>

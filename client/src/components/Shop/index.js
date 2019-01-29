@@ -49,7 +49,6 @@ class Shop extends Component {
         array = data[key].array
       }
     }
-    console.log('handle price fired!');
     return array;
   }
 

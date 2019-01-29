@@ -40,7 +40,6 @@ class UserCart extends Component {
     cartDetail.forEach(item => {
       total += parseInt(item.price, 10) * item.quantity
     });
-    console.log('Total: ', total)
 
     this.setState({
       total,
@@ -52,12 +51,10 @@ class UserCart extends Component {
     this.props.dispatch(removeCartItem(id))
       .then(() => {
         if(this.props.user.cartDetail.length <= 0) {
-          console.log('less than or equal to 0!')
           this.setState({
             showTotal: false
           })
         } else {
-          console.log(this.props.user.cartDetail)
           this.calculateTotal(this.props.user.cartDetail)
         }
       })
@@ -82,10 +79,7 @@ class UserCart extends Component {
       cartDetail: this.props.user.cartDetail,
       paymentData: data
     })).then(() => {
-      console.log(this.props.user.successBuy)
       if(this.props.user.successBuy) {
-        console.log('after successbuy check')
-
         this.setState({
           showTotal: false,
           showSuccess: true

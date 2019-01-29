@@ -401,7 +401,6 @@ app.post('/api/users/successBuy', auth, (req, res) => {
           )
         }, (err) => {
           if(err) return res.json({ success: false, err })
-          console.log('resetting cart and cartDetail');
           res.status(200).json({
             success: true,
             cart: [],

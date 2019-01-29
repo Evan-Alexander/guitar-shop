@@ -264,17 +264,16 @@ class AddProduct extends Component {
         const newFormData = populateOptionFields(formdata, this.props.products.brands, 'brand');
         this.updateFields(newFormData);
       });
-
+      
     this.props.dispatch(getWoodTypes())
       .then(response => {
-        const newFormData = populateOptionFields(formdata, this.props.products.woodType, 'wood');
+        const newFormData = populateOptionFields(formdata, this.props.products.woods, 'wood');
         this.updateFields(newFormData);
       })
   }
 
   imagesHandler = (images) => {
-    console.log('imagesHandler: ', 'hello?');
-    console.log('imagesHandler: ', images);
+
     const newFormData = {
       ...this.state.formdata
     }

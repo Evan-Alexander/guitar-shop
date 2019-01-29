@@ -79,7 +79,6 @@ export function getCartItems(cartItems, userCart) {
           }
         });
       });
-      console.log(response.data);
       return response.data;
     });
   return {
@@ -99,7 +98,6 @@ export function removeCartItem(id) {
           }
         });
       });
-      console.log(response.data);
       return response.data;
     });
   return {

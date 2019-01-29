@@ -17,12 +17,10 @@ class FileUpload extends Component {
     const config = {
       header: { "content-type": "multipart/form-data" }
     };
-    console.log('config: ', config)
     formData.append("file", files[0]);
 
     axios.post("/api/users/uploadimage", formData, config).then(
       response => {
-        console.log(response.data);
         this.setState({
           uploading: false,
           uploadedFiles: [...this.state.uploadedFiles, response.data]
