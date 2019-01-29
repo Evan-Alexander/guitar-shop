@@ -115,7 +115,7 @@ class UpdateUserInfo extends Component {
   render() {
     return (
       <form onSubmit={event => this.submitForm(event)}>
-        <h2>Personal Information</h2>
+        <h2>User Information</h2>
         <div className="form_block_two">
           <div className="block">
             <FormField

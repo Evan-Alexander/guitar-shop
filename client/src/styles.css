@@ -16,7 +16,7 @@ h2 {
 
 .page_container {
   min-height: 75vh;
-  padding-top: 5.5em;
+  padding-top: 9em;
 }
 
 .page_container.container-fluid {
@@ -64,17 +64,17 @@ a {
 
 .load_more_container {
   clear: both;
-  margin-bottom: 50px;
+  margin-bottom: 2em;
   border-top: 5px solid #f5f5f5;
-  padding-top: 20px;
+  padding-top: 1.2em;
 }
 
 .load_more_container span {
   cursor: pointer;
   background: #2196f3;
   color: #ffffff;
-  font-size: 27px;
-  padding: 10px 60px;
+  font-size: 2em;
+  padding: .4em 4em;
   display: table;
   margin: 0 auto;
 }
@@ -87,9 +87,9 @@ a {
 }
 
 .not_found_container {
-  font-size: 70px;
+  font-size: 4em;
   text-align: center;
-  padding-top: 70px;
+  padding-top: 4em;
   color: #dddddd;
 }
 
@@ -126,7 +126,7 @@ input {
   box-sizing: border-box;
   padding: 10px 10px;
   width: 100%;
-  margin: 10px 0px 0px 0px;
+  margin: 8px 0px 12px 0px;
 }
 
 button {
@@ -136,7 +136,7 @@ button {
   background: #e1ddc3;
   margin-top: 0.75em;
   font-family: "Oswald", sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .error_label {
@@ -157,13 +157,15 @@ textarea {
 
 .form_divider {
   border-bottom: 3px solid #999592;
-  margin: 40px 0px;
+  margin: 3em 0px;
 }
 
-.label_inputs {
+.label_inputs,
+.form_block .label_inputs {
   display: inline-block;
   background: #999592;
   color: #fff;
+  font-size: 1.2em;
   padding: 5px 5px;
 }
 
@@ -206,7 +208,7 @@ select {
 ==============================*/
 .link_default {
   text-transform: uppercase;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   display: table;
   background: #e1ddc3;
 }
@@ -274,12 +276,12 @@ header .logo {
   color: #ffffff;
   font-size: 3em;
   text-align: center;
-  padding: 11px 11px 11px 0px;
+  padding: .8em .8em .8em 0px;
   border-right: 1px solid #eeeeee;
 }
 
 header a {
-  margin-left: 20px;
+  margin-left: 1.1em;
 }
 
 header .container-fluid .right {
@@ -297,7 +299,7 @@ header .container-fluid .right .bottom {
   color: #ffffff;
   font-size: 1em;
   width: 100%;
-  padding: 10px 20px;
+  padding: .8em 1.1em;
 }
 
 header .container-fluid .right .top {
@@ -415,6 +417,8 @@ footer span .svg-inline--fa {
 
 .home_promotion .my_link a {
   margin: 1em auto;
+  padding: 0.5em 1.5em;
+  font-size: 1.2em;
 }
 
 /*============================
@@ -592,6 +596,12 @@ footer span .svg-inline--fa {
   border-bottom: 1px solid #d3d3d3;
 }
 
+.product_detail_wrapper .product_tags {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
 .product_detail_wrapper .product_action,
 .product_detail_wrapper .product_specifications {
   padding-bottom: 10px;
@@ -618,16 +628,17 @@ footer span .svg-inline--fa {
 .product_detail_wrapper .product_action .price {
   font-size: 2em;
   font-weight: 300;
+  text-align: center;
 }
 .product_detail_wrapper .product_action .cart {
-  width: 50%;
+  width: 100%;
 }
 .user_cart_sum {
-  font-size: 20px;
+  font-size: 1.5em;
   text-transform: uppercase;
   border: 1px solid #e7e7e7;
   background: #f7f7f7;
-  padding: 20px 30px;
+  padding: 0.8em 1.5em;
 }
 
 .cart_no_items svg,
@@ -727,6 +738,10 @@ footer span .svg-inline--fa {
   width: 100%;
 }
 
+.register_form h1{
+  margin-bottom: 1.5em;
+}
+
 /*=============================
          USER
 ===============================*/
@@ -735,11 +750,13 @@ footer span .svg-inline--fa {
   display: flex;
   margin-bottom: 3em;
   min-height: 4em;
-  margin-top: 1.5em;
+  margin-top: 5em;
 }
 
 .user_container .user_left_nav {
   border-right: 1px solid #f8f8f8;
+  padding-right: 20px;
+  width: 20%;
 }
 
 .user_container .user_left_nav .links a {
@@ -789,7 +806,7 @@ footer span .svg-inline--fa {
 }
 
 .user_product_block .item {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   text-align: center;
 }
 
@@ -797,15 +814,11 @@ footer span .svg-inline--fa {
   padding-top: 50%;
 }
 
-.user_product_block .item .image {
-  height: 125px;
+.user_product_block .image {
+  height: 200px;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
-  margin-right: 0.75em;
-}
-.user_product_block .item.btn {
-  width: 0px;
 }
 
 .user_product_block .cart_remove_btn {
@@ -855,8 +868,6 @@ footer span .svg-inline--fa {
   border: 1px solid #e5e5e5;
   margin-bottom: 2.5em;
 }
-
-
 
 .dropzone .wrap {
   float: left;
@@ -908,8 +919,26 @@ footer span .svg-inline--fa {
   }
   .product_detail_wrapper .product_image_container {
     padding-right: 0;
+  }
 }
 
+@media (min-width: 769px) {
+  /* CART */
+  .user_product_block .image,
+  .user_product_block .item {
+    width: 25%;
+  }
+
+  .user_product_block .item:last-of-type  {
+    font-size: 1em;
+  }
+  .user_product_block .item h4 {
+    font-size: 1.8em;
+    line-height: 1.8em;
+  }
+  .user_product_block .item div {
+    font-size: 1.3em;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -918,9 +947,7 @@ footer span .svg-inline--fa {
     font-size: 14px;
     transition: all 0.3s ease-in;
   }
-  .page_container {
-    padding-top: 6em;
-  }
+
   .featured_container .featured_image {
     height: 75vh;
   }
@@ -936,14 +963,42 @@ footer span .svg-inline--fa {
   .home_promotion .tag.low_title {
     font-size: 2em;
   }
+
   header .logo {
     border-right: none;
   }
+
   .card_item_wrapper.grid_bars .action_container {
     width: 107%;
   }
+
   .brands_container .category_item {
     width: 150px;
+  }
+
+  .user_container .user_left_nav {
+    border-right: 1px solid #f8f8f8;
+    padding-right: 0;
+    width: 25%;
+  }
+  /* CART */
+  .user_product_block .image {
+    width: 100%;
+  }
+  .user_product_block .item {
+    width: 33%;
+  }
+  .user_product_block .item:last-of-type  {
+    width: 60%;
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  .user_product_block .item h4 {
+    font-size: 1.8em;
+    line-height: 1.8em;
+  }
+  .user_product_block .item div {
+    font-size: 1.3em;
   }
 }
 
@@ -962,7 +1017,8 @@ footer span .svg-inline--fa {
   }
 
   .link_default {
-    padding: 1em;
+    padding: 0.5em 1.5em;
+    font-size: 1.2em
   }
 
   .text-light-grey h2 {
@@ -981,9 +1037,11 @@ footer span .svg-inline--fa {
     padding: 0px 6px 1px 6px;
     font-size: 10px;
   }
-  .page_container {
-    padding-top: 9em;
+  header .container-fluid .right .top,
+  header .container-fluid .right .bottom {
+    font-size: 1.2em;
   }
+
   .home_promotion .home_promotion_img {
     padding: 30px;
   }
@@ -995,10 +1053,6 @@ footer span .svg-inline--fa {
 
   .home_promotion .tag.title {
     font-size: 3em;
-  }
-
-  .user_container {
-    margin-top: 6em;
   }
 
   .user_container .user_nfo_panel h1 {
@@ -1038,6 +1092,7 @@ footer span .svg-inline--fa {
   .card_item_wrapper.grid_bars .tags .price {
     font-size: 1.2em;
   }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
