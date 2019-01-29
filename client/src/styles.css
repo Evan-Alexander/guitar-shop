@@ -29,7 +29,7 @@ h2 {
 }
 
 .page_wrapper {
-  padding-top: 85px;
+  padding-top: 4em;
 }
 
 a {
@@ -43,6 +43,7 @@ a {
 
 .text-light-grey {
   color:  #999592;
+  text-align: center;
 }
 
 .bck_b_dark {
@@ -251,6 +252,10 @@ select {
   margin-top: 10px;
 }
 
+.signin_wrapper button {
+  padding: 0.5em 1.5em;
+}
+
 /*============================
         PAGE TOP
 ==============================*/
@@ -276,7 +281,7 @@ header .logo {
   color: #ffffff;
   font-size: 3em;
   text-align: center;
-  padding: .8em .8em .8em 0px;
+  padding: .3em .5em .3em 0px;
   border-right: 1px solid #eeeeee;
 }
 
@@ -344,6 +349,10 @@ footer .icon {
 
 footer span .svg-inline--fa {
   font-size: 1.5em;
+}
+
+footer .col {
+  text-align: center;
 }
 
 /*============================
@@ -981,6 +990,11 @@ footer span .svg-inline--fa {
     padding-right: 0;
     width: 25%;
   }
+
+  .register_login_container .my_link {
+    margin-bottom: 2em;
+  }
+
   /* CART */
   .user_product_block .image {
     width: 100%;
@@ -1002,6 +1016,13 @@ footer span .svg-inline--fa {
   }
 }
 
+@media (max-width: 633px) {
+  header .logo {
+    padding: .8em .8em .8em 0px;
+
+  }
+}
+
 @media (min-width: 577px) {
   .card_item_wrapper.grid_bars {
     width: 100%;
@@ -1019,10 +1040,6 @@ footer span .svg-inline--fa {
   .link_default {
     padding: 0.5em 1.5em;
     font-size: 1.2em
-  }
-
-  .text-light-grey h2 {
-    text-align: center;
   }
 
   header .logo {

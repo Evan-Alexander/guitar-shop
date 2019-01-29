@@ -54,7 +54,7 @@ const Footer = ({ data }) => {
           </div>
           <div className="col-sm-6 col-lg-6 text-light-grey">
             <h2>Be The First to Know</h2>
-            <div>
+            <div className="margin-b3">
               Get all the latest information on events, sales, and offers. You
               can't miss out!
             </div>
