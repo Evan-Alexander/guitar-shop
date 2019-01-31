@@ -42,7 +42,6 @@ export const update = (element, formdata, formName) => {
   // if there was a blur event, this will be true, else false
   newElement.touched = element.blur;
   newFormdata[element.id] = newElement;
-  console.log("new element", newElement);
   return newFormdata;
 }
 

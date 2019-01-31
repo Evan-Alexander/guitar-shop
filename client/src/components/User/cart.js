@@ -36,9 +36,8 @@ class UserCart extends Component {
 
   calculateTotal = (cartDetail) => {
     let total = 0;
-
     cartDetail.forEach(item => {
-      total += parseInt(item.price, 10) * item.quantity
+      total += (Math.round(item.price * 100) / 100) * item.quantity     
     });
 
     this.setState({
@@ -102,7 +101,7 @@ class UserCart extends Component {
           {this.state.showTotal ? 
             <div className="user_cart_sum">
               <div>
-                Total amount: $ {this.state.total}
+                Total amount: $ {this.state.total.toFixed(2)}
               </div>
             </div>
           :  
