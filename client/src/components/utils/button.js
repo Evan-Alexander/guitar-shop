@@ -32,6 +32,7 @@ const CustomButton = (props) => {
           <div 
             className="add_to_cart_link"
             onClick={() => {
+              console.log('clicked!')
               props.runAction()
             }}
           >

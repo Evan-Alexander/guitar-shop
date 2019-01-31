@@ -16,7 +16,7 @@ h2 {
 
 .page_container {
   min-height: 75vh;
-  padding-top: 9em;
+  padding-top: 6em;
 }
 
 .page_container.container-fluid {
@@ -1019,7 +1019,6 @@ footer .col {
 @media (max-width: 633px) {
   header .logo {
     padding: .8em .8em .8em 0px;
-
   }
 }
 
@@ -1079,9 +1078,15 @@ footer .col {
   .card_item_wrapper {
     width: 80%;
   }
+
   .page_top {
     margin-top: 40px;
   }
+
+  .page_container {
+    padding-top: 12em;
+  }
+
   svg[class^="MuiSvgIcon-root"] {
     font-size: 0.75em;
   }
