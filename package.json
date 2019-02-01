@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.23.0",
     "mongoose": "^5.3.16",
+    "nodemailer": "^5.1.1",
     "nodemon": "^1.18.8"
   }
 }

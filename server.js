@@ -37,6 +37,10 @@ const { Site } = require("./models/site");
 const { auth } = require("./middleware/auth");
 const { admin } = require("./middleware/admin");
 
+// Utils
+const { sendMail } = require("./utils/mail/index");
+
+
 //=====================
 //  PRODUCTS / GUITARS
 //=====================
@@ -203,6 +207,7 @@ app.post("/api/users/register", (req, res) => {
 
   user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
+    sendMail(doc.email, doc.name, null, "welcome");
     res.status(200).json({
       success: true
     });
