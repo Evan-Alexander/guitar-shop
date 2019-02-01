@@ -1,13 +1,14 @@
 import React from 'react'
-import moment from 'moment';
-
+// import moment from 'moment';
+// moment example - removed due to addition of PO generated upon purchase
+// {moment(product.dateOfPurchase).format("MM-DD-YYYY")}
 const HistoryBlock = ({products}) => {
 
   const renderBlocks = () => (
     products ? 
       products.map((product, i) => (
         <tr key={i}>
-          <td>{moment(product.dateOfPurchase).format("MM-DD-YYYY")}</td>
+          <td>{product.purchase_order}</td>
           <td>{product.brand} {product.name}</td>
           <td>${product.price}</td>
           <td>{product.quantity}</td>
@@ -20,7 +21,7 @@ const HistoryBlock = ({products}) => {
       <table>
         <thead>
           <tr>
-            <th>Date of Purchase</th>
+            <th>PO #</th>
             <th>Product</th>
             <th>Paid</th>
             <th>Quantity</th>

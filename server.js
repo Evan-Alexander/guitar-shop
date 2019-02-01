@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary");
+const sha256 = require("crypto-js/sha256");
 
 const app = express();
 const mongoose = require("mongoose");
@@ -39,7 +40,6 @@ const { admin } = require("./middleware/admin");
 
 // Utils
 const { sendMail } = require("./utils/mail/index");
-
 
 //=====================
 //  PRODUCTS / GUITARS
@@ -357,9 +357,13 @@ app.post('/api/users/successBuy', auth, (req, res) => {
 
   let history = [];
   let transactionData = {};
+  const date = new Date();
+  const po = `PO-${date.getSeconds()}${date.getMilliseconds()}-${sha256(req.user._id)
+  .toString().substring(0, 8)}`
   // User History
   req.body.cartDetail.forEach((item) => {
     history.push({
+      purchase_order: po,
       dateOfPurchase: Date.now(),
       name: item.name,
       brand: item.brand.name,
@@ -376,7 +380,10 @@ app.post('/api/users/successBuy', auth, (req, res) => {
     lastname: req.user.lastname,
     email: req.user.email
   }
-  transactionData.data = req.body.paymentData; // Getting payment info from the onSuccess paypal method
+  transactionData.data = {
+    ...req.body.paymentData,
+    purchase_order: po
+  }; // Getting payment info from the onSuccess paypal method
   transactionData.product = history; // Getting modified product object only relevent to purchase history
 
   User.findOneAndUpdate(
