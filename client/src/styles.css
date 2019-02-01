@@ -435,14 +435,14 @@ footer .col {
 ==============================*/
 
 .card_block {
-  margin: 5em 0px;
+  margin: 4em 0px;
 }
 
 .card_block .title {
   text-transform: uppercase;
   text-align: center;
   font-size: 2em;
-  margin-bottom: 50px;
+  margin-bottom: 2em;
 }
 
 .card_block_shop .card_item_wrapper {
@@ -759,7 +759,7 @@ footer .col {
   display: flex;
   margin-bottom: 3em;
   min-height: 4em;
-  margin-top: 5em;
+  margin-top: 3em;
 }
 
 .user_container .user_left_nav {
@@ -918,6 +918,9 @@ footer .col {
     width: 100%;
     display: flex;
   }
+  .card_block .card_item_wrapper {
+    width: 33%;
+  }
 
 }
 
@@ -941,12 +944,16 @@ footer .col {
   .user_product_block .item:last-of-type  {
     font-size: 1em;
   }
+
   .user_product_block .item h4 {
     font-size: 1.8em;
     line-height: 1.8em;
   }
   .user_product_block .item div {
     font-size: 1.3em;
+  }
+  .user_product_block .item:not(.btn){
+    height: 120px;
   }
 }
 
@@ -1014,6 +1021,13 @@ footer .col {
   .user_product_block .item div {
     font-size: 1.3em;
   }
+  .card_block .card_item_wrapper {
+    width: 50%;
+  }
+  .user_product_block .item:not(.btn){
+    height: 100px;
+  }
+  
 }
 
 @media (max-width: 633px) {
@@ -1027,6 +1041,7 @@ footer .col {
     width: 100%;
     margin-left: 0;
   }
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -1058,6 +1073,11 @@ footer .col {
     font-size: 1.2em;
   }
 
+
+  .featured_container .featured_image {
+    height: 55vh;
+  }
+
   .home_promotion .home_promotion_img {
     padding: 30px;
   }
@@ -1075,12 +1095,8 @@ footer .col {
     font-size: 1.75em;
   }
 
-  .card_item_wrapper {
-    width: 80%;
-  }
-
   .page_top {
-    margin-top: 40px;
+    margin-top: 1em;
   }
 
   .page_container {
@@ -1089,6 +1105,17 @@ footer .col {
 
   svg[class^="MuiSvgIcon-root"] {
     font-size: 0.75em;
+  }
+
+  .card_block {
+    margin: 2em 0px;
+  }
+  .card_block .title {
+    margin-bottom: 1em;
+  }
+
+  .card_block .card_item_wrapper {
+    width: 75%;
   }
 
   .card_block_shop .card_item_wrapper {
@@ -1113,6 +1140,10 @@ footer .col {
 
   .card_item_wrapper.grid_bars .tags .price {
     font-size: 1.2em;
+  }
+
+  .user_product_block .item:not(.btn){
+    height: 80px;
   }
 
 }
