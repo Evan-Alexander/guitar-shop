@@ -12,6 +12,9 @@ import Register from './components/Register_login/Register';
 import Shop from './components/Shop';
 import ProductDetail from './components/Product';
 
+import ResetUser from './components/Reset_user';
+import ResetPassword from './components/Reset_user/reset_password';
+
 // Authenticated Routes
 import UserDashboard from './components/User';
 import AddProduct from './components/User/Admin/add_product';
@@ -19,7 +22,6 @@ import ManageCategories from './components/User/Admin/manage_categories';
 import UserCart from './components/User/cart';
 import UpdateProfile from './components/User/update_profile';
 import ManageSite from './components/User/Admin/manage_site';
-import ResetUser from './components/Reset_user';
 
 import PageNotFound from './components/utils/page_not_found';
 
@@ -35,6 +37,7 @@ const Routes = () => {
         <Route path="/admin/manage_categories" exact component={Auth(ManageCategories, true)} />
         <Route path="/admin/site_info" exact component={Auth(ManageSite, true)} />
 
+        <Route path="/reset_password/:token" exact component={Auth(ResetPassword, false)} />
         <Route path="/reset_user" exact component={Auth(ResetUser, false)} />
  
         <Route path="/product_detail/:id" exact component={Auth(ProductDetail, null)} />

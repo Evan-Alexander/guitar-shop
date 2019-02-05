@@ -4,12 +4,12 @@ const cookieParser = require("cookie-parser");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary");
 const sha256 = require("crypto-js/sha256");
-
-const app = express();
-const mongoose = require("mongoose");
+const moment = require('moment');
 const async = require("async");
 const path = require("path");
+const mongoose = require("mongoose");
 
+const app = express();
 
 require("dotenv").config();
 
@@ -190,6 +190,41 @@ app.get("/api/product/brands", (req, res) => {
 //===================
 //  USERS
 //===================
+
+app.post('/api/users/reset_user', (req,res) => {
+  User.findOne(
+    {'email': req.body.email},
+    (err, user) => {
+      user.generateResetToken((err, user) => {
+        if(err) return res.json({success: false, err});
+        sendMail(user.email, user.name, null, "reset_password", user);
+        return res.json({success: true});
+      })
+    }
+  )
+})
+
+app.post('/api/users/reset_password', (req, res) => {
+  var today = moment().startOf('day').valueOf();
+
+  User.findOne({
+    resetToken: req.body.resetToken,
+    resetTokenExpiration: {
+      $gte: today
+    }
+  },(err, user) => {
+    if(!user) return res.json({success: false, message: 'Sorry, your token is not valid.  Please generate a new one.'})
+
+    user.password = req.body.password;
+    user.resetToken = '';
+    user.resetTokenExpiration = '';
+
+    user.save((err, doc) => {
+      if(err) return res.json({success: false, err})
+      return res.status(200).json({success: true})
+    })
+  })
+})
 
 app.get("/api/users/auth", auth, (req, res) => {
   res.status(200).json({
