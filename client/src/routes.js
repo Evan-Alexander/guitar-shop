@@ -20,6 +20,7 @@ import UserCart from './components/User/cart';
 import UpdateProfile from './components/User/update_profile';
 import ManageSite from './components/User/Admin/manage_site';
 
+
 import PageNotFound from './components/utils/page_not_found';
 
 const Routes = () => {

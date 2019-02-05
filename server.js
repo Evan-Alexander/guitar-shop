@@ -9,6 +9,8 @@ const app = express();
 const mongoose = require("mongoose");
 const async = require("async");
 const path = require("path");
+const fs = require('fs');
+const multer = require('multer');
 
 require("dotenv").config();
 
@@ -41,6 +43,45 @@ const { admin } = require("./middleware/admin");
 // Utils
 const { sendMail } = require("./utils/mail/index");
 
+// Upload Files
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}_${file.originalname}`)
+  },
+  fileFilter: (req, res, cb) => {
+    const ext = path.extname(file.originalname)
+      if(ext !== '.jpg' && ext !== '.png') {
+        return cb(res.status(400).end('only jpg, png images are allowed'), false)
+      }
+      cb(null, true)
+  }
+});
+
+const upload = multer({storage: storage}).single('file')
+
+app.post('/api/users/uploadfile', auth, admin, (req, res) => {
+  upload(req, res, (err) => {
+    if(err) {
+      return res.json({ success: false, err})
+    }
+    return res.json({ success: true })
+  })
+})
+
+app.get('/api/users/admin_files',auth,admin, (req,res) => {
+  const dir = path.resolve('.') + '/uploads/';
+  fs.readdir(dir, (err, items) => {
+    return res.status(200).send(items);
+  })
+})
+
+app.get('/api/users/download/:id', auth, admin, (req, res) => {
+  const file = path.resolve('.') + `/uploads/${req.params.id}`;
+  res.download(file)
+})
 //=====================
 //  PRODUCTS / GUITARS
 //=====================
