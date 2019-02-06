@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CustomButton from './button';
 import { connect } from 'react-redux';
 import { addToCart } from '../../actions/user_actions';
-import axios from 'axios';
 
 class Card extends Component {
 
@@ -20,14 +19,14 @@ class Card extends Component {
 
     return (
       <div className={`card_item_wrapper ${props.grid}`}>
-        <a href={`/product_detail/${props._id}`}>
+        
         <div
           className="image"
           style={{
             background: `url(${this.renderCardImage(props.images)}) no-repeat`
           }}
         ></div>
-        </a>
+       
         <div className="action_container">
           <div className="tags">
             <div className="brand">{props.brand.name}</div>
