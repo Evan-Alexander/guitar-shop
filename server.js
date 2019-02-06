@@ -214,7 +214,7 @@ app.post('/api/users/reset_password', (req, res) => {
     }
   },(err, user) => {
     if(!user) return res.json({success: false, message: 'Sorry, your token is not valid.  Please generate a new one.'})
-
+    
     user.password = req.body.password;
     user.resetToken = '';
     user.resetTokenExpiration = '';
